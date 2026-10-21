@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>חזקים בשטח | הדגמה אינטראקטיבית v4.58</title>
+<meta name="description" content="סיור אינטראקטיבי באפליקציית חזקים בשטח 4.58: פעולות ללקוח, רשת, למידה וכלי טכנאים."/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23095783'/%3E%3Ctext x='50' y='73' font-size='69' text-anchor='middle'%3E💪%3C/text%3E%3C/svg%3E"/>
+<style>
+:root{color-scheme:dark;--navy:#06182b;--ink:#eafaff;--soft:#9dc6d6;--aqua:#04d7ba;--blue:#48a9ff;--line:#225573}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 78% -12%,#145074 0%,transparent 42%),linear-gradient(145deg,#061424,#102b44 68%,#073950);color:var(--ink);font-family:Arial,'Segoe UI',sans-serif;line-height:1.5}
+button,a{font-family:inherit}button{cursor:pointer}a{color:#90eafb}
+.header{max-width:1500px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:25px 24px 15px;gap:12px;flex-wrap:wrap}.brand{display:flex;gap:14px;align-items:center}.mark{font-size:34px;background:linear-gradient(145deg,#04a9ba,#2577c9);border-radius:16px;padding:9px 12px;box-shadow:0 13px 40px #009bc044}.brand h1{margin:0;font-size:30px;letter-spacing:-1px}.subtitle{font-size:13px;color:#97cade}.toplinks{display:flex;gap:9px;flex-wrap:wrap}.toplinks a{border:1px solid #2d7891;border-radius:999px;padding:9px 14px;text-decoration:none;font-size:13px;background:#12455b6e}
+.alert{max-width:1450px;margin:0 auto 16px;background:#15526a50;border:1px solid #286e84;border-radius:14px;padding:11px 17px;color:#c8e3ee;font-size:13px}.alert b{color:#6dfed9}
+.layout{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:258px minmax(360px,1fr) 340px;gap:23px;padding:10px 24px 24px;align-items:start}
+.panel{background:#092238d6;border:1px solid #26617a;border-radius:23px;box-shadow:0 28px 75px #010c1c58}
+.sidebar{padding:16px;position:sticky;top:16px;max-height:calc(100vh - 40px);overflow:auto}.sidehead{font-size:12px;letter-spacing:2px;color:var(--aqua);font-weight:700;margin:3px 8px 16px}.groupLabel{color:#85b1c3;font-size:12px;font-weight:700;margin:16px 10px 5px}.nav{display:grid;gap:5px}.item{display:flex;align-items:center;gap:10px;border:1px solid transparent;background:transparent;border-radius:12px;padding:10px 12px;color:#c7ddea;text-align:right;font-size:14px;width:100%;transition:150ms}.item:hover{background:#173a52}.item.active{background:linear-gradient(95deg,#128b9b,#116b93);border-color:#40e7ce5c;color:#fff;box-shadow:0 8px 25px #0273ad35}.dot{width:7px;height:7px;border-radius:50%;background:#46d8eb;flex-shrink:0}
+.viewer{display:flex;justify-content:center;align-items:center;min-height:720px;position:relative;padding:29px 16px;background:radial-gradient(ellipse at center,#09608244,transparent 60%)}.phone{width:min(100%,352px);padding:10px;background:#050d18;border:5px solid #172d40;border-radius:47px;box-shadow:0 30px 55px #000b,0 0 0 2px #5ecfe152;position:relative}.camera{width:89px;height:17px;background:#050d18;position:absolute;z-index:1;top:0;left:50%;transform:translateX(-50%);border-radius:0 0 14px 14px}.screen{height:min(72vh,650px);min-height:520px;overflow:auto;overscroll-behavior:contain;background:#eff7fc;border-radius:34px;scrollbar-width:thin}.screen img{width:100%;display:block;object-fit:contain}.phonebottom{height:9px;width:100px;border-radius:20px;background:#b1c2cd;margin:10px auto 3px}
+.sideinfo{padding:23px;position:sticky;top:16px}.eyebrow{display:inline-flex;gap:6px;align-items:center;border-radius:30px;padding:6px 11px;background:#11576c;font-size:12px;color:#87f6e3}.sideinfo h2{font-size:28px;line-height:1.3;margin:18px 0 13px}.sideinfo p{color:#b6d2df;font-size:16px;line-height:1.8;min-height:115px}.features{display:flex;flex-direction:column;gap:9px}.features button{border-radius:12px;border:1px solid #316b88;background:#164057;color:#f2fdff;padding:12px;text-align:right;font-size:14px;transition:180ms}.features button:hover{background:#226f83}.features button.primary{background:linear-gradient(95deg,#0e988f,#167aa9);border-color:#44cfe1}.features button:disabled{opacity:.4;cursor:not-allowed}.controls{margin-top:20px;display:flex;gap:10px}.controls button{flex:1;border:1px solid #326782;border-radius:10px;padding:11px 5px;background:#102c45;color:white}.keyhint{font-size:12px;color:#829caf;margin-top:12px}.count{font-variant-numeric:tabular-nums;color:#70eacc}
+.footer{max-width:1500px;margin:0 auto 25px;padding:0 25px;text-align:center;color:#89a9bd;font-size:12px}
+.overlay{position:fixed;inset:0;z-index:9;display:flex;align-items:center;justify-content:center;padding:15px;background:#020c16d8}.overlay[hidden]{display:none}.dialog{width:min(96vw,530px);border:1px solid #2d7896;background:#0f2a3d;padding:25px;border-radius:25px;box-shadow:0 25px 100px #000b}.dialogheader{display:flex;justify-content:space-between;align-items:center;gap:16px}.dialog h3{margin:0;font-size:22px}.close{border:0;background:#22526b;color:white;font-size:22px;border-radius:9px;width:37px;height:37px}.mockbadge{color:#a3eacb;font-size:13px;margin:12px 0}.chat{background:#e7e2d6;border-radius:15px;padding:16px;color:#1c333a;min-height:250px;background-image:radial-gradient(#c8d9d2 1px,transparent 1px);background-size:19px 19px}.bubble{background:#d4facf;max-width:90%;padding:15px;border-radius:13px 3px 13px 13px;box-shadow:0 4px 12px #0001;white-space:pre-line;overflow-wrap:anywhere;font-size:15px;line-height:1.7}.bubble small{display:block;text-align:left;font-size:11px;color:#5a7771;margin-top:6px}.dlgfoot{color:#b2cbdd;font-size:13px;margin:14px 0 0}.dismiss{margin-top:13px;background:#167f98;color:white;border:0;border-radius:12px;padding:11px 20px;width:100%}
+@media (max-width:1170px){.layout{grid-template-columns:220px minmax(330px,1fr)}.sideinfo{position:static;grid-column:1/-1}.sideinfo p{min-height:0}.features{flex-direction:row;flex-wrap:wrap}.features button{flex:1}.viewer{min-height:670px}}
+@media (max-width:740px){.header{padding:16px}.brand h1{font-size:22px}.alert{margin:0 12px 9px}.layout{padding:7px 12px;display:flex;flex-direction:column;gap:12px}.sidebar{position:static;width:100%;max-height:none;overflow:visible;padding:12px}.sidebar .sidehead{margin-bottom:8px}.nav{display:flex;overflow-x:auto;gap:6px;padding-bottom:5px}.groupLabel{display:none}.item{min-width:max-content;padding:8px 11px;border:1px solid #2a6581;background:#123448}.viewer{width:100%;padding:16px 8px;min-height:auto}.screen{height:550px;min-height:450px}.phone{max-width:315px}.sideinfo{width:100%;padding:17px}.sideinfo h2{font-size:21px;margin:9px 0}.sideinfo p{font-size:14px;margin:6px 0 16px}.keyhint{display:none}.footer{padding:15px}}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="brand"><div class="mark" aria-hidden="true">💪</div><div><h1>חזקים בשטח</h1><div class="subtitle">סיור אינטראקטיבי • גרסה 4.58 • כלי טכנאים</div></div></div>
+<div class="toplinks"><a href="#explore">התחל הדגמה ↓</a><a href="https://github.com/hendayan1990-svg/hazakim-release-cdd0a3dc67f81a/releases/tag/v4.58" target="_blank" rel="noopener noreferrer">גרסת Android ↗</a></div>
+</header>
+<div class="alert"><b>דוגמה לצורכי הצגה בלבד:</b> זהו סיור דפדפן המציג צילומי מסך אמיתיים של גרסת Android, ולא הפעלה מלאה של האפליקציה. פעולות ההודעות המוצגות הן המחשה בלבד; אין שליחת הודעות או חיוג בפועל. לא מוצגים נתונים אישיים מזהים.</div>
+<main class="layout" id="explore">
+<aside class="panel sidebar"><div class="sidehead">בחר מסך להדגמה</div><nav class="nav" id="nav" aria-label="מסכי האפליקציה"></nav></aside>
+<section class="panel viewer" aria-label="תצוגת האפליקציה">
+<div class="phone"><div class="camera"></div><div class="screen" id="phonescreen"><img id="shot" alt="צילום מסך אמיתי מתוך חזקים בשטח"/></div><div class="phonebottom"></div></div>
+</section>
+<aside class="panel sideinfo"><span class="eyebrow">● צילום מסך אמיתי · v4.58</span><h2 id="title">מסך ראשי</h2><p id="description">מסך פתיחה</p><div class="features" id="actions"></div><div class="controls"><button id="prev">הקודם →</button><button id="next">← הבא</button></div><div class="keyhint">ניתן לעבור בין המסכים באמצעות החצים במקלדת • מסך <span id="count" class="count"></span></div></aside>
+</main>
+<footer class="footer">חזקים בשטח • הדגמה לצורך הצגת רעיון בלבד • אינה מערכת רשמית של בזק • ללא גישה למערכות ארגוניות</footer>
+<div class="overlay" id="overlay" hidden aria-hidden="true"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dlgTitle"><div class="dialogheader"><h3 id="dlgTitle">הדמיית הודעה אצל הלקוח</h3><button class="close" id="closeDialog" aria-label="סגור">×</button></div><div class="mockbadge">WhatsApp • צד הלקוח • המחשה בלבד</div><div class="chat"><div class="bubble" id="chatText"></div></div><p class="dlgfoot">הפעולה להמחשה בלבד. לא נשלחה הודעה לאיש קשר.</p><button class="dismiss" id="dismiss">סגור הדגמה</button></div></div>
+<script>
+const screens=[{"id":"home","name":"ראשי","title":"ממשק הבית","desc":"מספר לקוח, בחירת שפה, הדבקה מהלוח ובקשת מיקום בשלב אחד.","image":"screens/home.webp","group":"בית"},{"id":"share","name":"שליחה ללקוח","title":"פעולות נוספות ללקוח","desc":"שליחת מספרי מוקדי השירות וקישור לאפליקציית בזק, בהכנת הודעה שנשלחת רק באישור הטכנאי.","image":"screens/share.webp","group":"לקוחות"},{"id":"message","name":"הודעה אישית","title":"עורך ההודעות","desc":"נוסח חופשי להתאמה לביקור, בעזרת כפתורים ברורים בשטח.","image":"screens/message.webp","group":"לקוחות"},{"id":"speed","name":"בדיקת מהירות","title":"אבחון רשת","desc":"תצוגת קצב הורדה והעלאה, זמני תגובה ופירוט שרת המדידה.","image":"screens/speed.webp","group":"רשת"},{"id":"wifi","name":"WiFi 360","title":"כיסוי חדרים","desc":"בדיקות חדרים, שמירת נתוני קליטה וסקירת כיסוי ביחס למיקום הנתב.","image":"screens/wifi.webp","group":"רשת"},{"id":"ar","name":"מציאות רבודה","title":"הרשאות לסריקת סביבה","desc":"מסך הבקשה להרשאות מיקום ורשת לקראת סריקת Wi-Fi. מפת הכיסוי בפועל דורשת מדידה בבית.","image":"screens/ar.webp","group":"רשת"},{"id":"learning","name":"אקדמיית הטכנאים","title":"מרכז למידה","desc":"גישה למדריכים מקצועיים לפי תשתית, משימה ושלב עבודה.","image":"screens/learning.webp","group":"למידה"},{"id":"fiber","name":"סיבים אופטיים","title":"התקנות סיבים","desc":"מדריכים חזותיים למחברים ולשלבי התקנה של סיבים אופטיים.","image":"screens/fiber.webp","group":"למידה"},{"id":"copper","name":"נחושת ו־DSL","title":"פתרון תקלות","desc":"שלבי עבודה, תרשימי חיבור ועקרונות איתור תקלות בנחושת.","image":"screens/copper.webp","group":"למידה"},{"id":"msag","name":"MSAG","title":"גישור וציוד תשתית","desc":"מסכי הדרכה חזותיים לחיבורי MSAG ותשתיות תקשורת.","image":"screens/msag.webp","group":"למידה"},{"id":"equipment","name":"ציוד וחתימות","title":"ניהול ציוד","desc":"משיכה, העברה, החזרה, מסירה ואישור קבלה עם אפשרות תיעוד.","image":"screens/equipment.webp","group":"כלים"},{"id":"catalog","name":"קטלוג מק״טים","title":"חיפוש ציוד","desc":"איתור פריטים ורשימות קבועות לשימוש בטכנאות שטח.","image":"screens/catalog.webp","group":"כלים"},{"id":"docs","name":"מסמכים שלי","title":"מסמכי עובד","desc":"שמירת מסמכים במכשיר וגישה מהירה גם כשאין חיבור לאינטרנט.","image":"screens/docs.webp","group":"כלים"},{"id":"contacts","name":"ספר טלפונים","title":"אנשי קשר וקיצורים","desc":"חיפוש חברי צוות ומנהלים, שיחה, WhatsApp וקיצור לניווט. פרטי זיהוי מוסתרים בהדגמה.","image":"screens/contacts.webp","group":"כלים"},{"id":"toolhub","name":"קיצורים","title":"כלי בזק ושירותים","desc":"קישורים לכלים ושירותים בסביבת העבודה, בהתאם להרשאות העובד.","image":"screens/toolhub.webp","group":"כלים"}];
+let current=0;
+let open=false;
+const nav=document.getElementById('nav'),screen=document.getElementById('phonescreen'),shot=document.getElementById('shot');
+const title=document.getElementById('title'),desc=document.getElementById('description'),actions=document.getElementById('actions'),count=document.getElementById('count');
+const chat=document.getElementById('chatText'),overlay=document.getElementById('overlay'),dlgTitle=document.getElementById('dlgTitle');
+const groups=[...new Set(screens.map(x=>x.group))];
+groups.forEach(g=>{
+ const label=document.createElement('div');label.className='groupLabel';label.textContent=g;nav.append(label);
+ screens.filter(x=>x.group===g).forEach(x=>{
+  const b=document.createElement('button');b.type='button';b.className='item';b.dataset.id=x.id;b.innerHTML='<span class="dot"></span><span></span>';b.lastElementChild.textContent=x.name;b.addEventListener('click',()=>select(screens.indexOf(x)));nav.append(b);
+ });
+});
+function modal(kind){
+ const app=kind==='app';dlgTitle.textContent=app?'איך הלקוח מקבל קישור לאפליקציית בזק':'איך הלקוח מקבל את מוקדי השירות';
+ chat.textContent=app?'שלום!\nלהורדת אפליקציית בזק לשירות עצמי ולניהול השירות:\nhttps://r.bezeq.co.il/appBezeq8':'שלום!\nלבקשתך, מצורף מידע ליצירת קשר עם שירות בזק.\nניתן למצוא את פרטי המוקדים באתר בזק הרשמי.\nיום נעים!';
+ let small=document.createElement('small');small.textContent='הודעה לדוגמה · לא נשלחה';chat.append(small);overlay.hidden=false;overlay.setAttribute('aria-hidden','false');document.getElementById('closeDialog').focus();open=true;
+}
+function closeModal(){overlay.hidden=true;overlay.setAttribute('aria-hidden','true');open=false}
+document.getElementById('closeDialog').addEventListener('click',closeModal);document.getElementById('dismiss').addEventListener('click',closeModal);overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal()});
+function action(name,fn,primary=false){let b=document.createElement('button');b.type='button';b.textContent=name;b.className=primary?'primary':'';b.addEventListener('click',fn);actions.append(b)}
+function select(i){
+ current=(i+screens.length)%screens.length;
+ const x=screens[current];
+ shot.src=x.image;shot.alt='צילום מסך '+x.title;title.textContent=x.title;desc.textContent=x.desc;screen.scrollTop=0;count.textContent=(current+1)+' / '+screens.length;
+ for(const el of nav.querySelectorAll('button')){el.classList.toggle('active',el.dataset.id===x.id);if(el.dataset.id===x.id)el.scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'})}
+ actions.replaceChildren();
+ if(x.id==='share'){action('💬 הצג מוקדי בזק ב־WhatsApp',()=>modal('hotlines'),true);action('📱 הצג קישור לאפליקציית בזק',()=>modal('app'));}
+ else if(x.id==='home'){action('הצג אפשרויות נוספות ללקוח',()=>select(screens.findIndex(x=>x.id==='share')),true);action('בדיקת מהירות Wi-Fi',()=>select(screens.findIndex(x=>x.id==='speed')));}
+ else if(x.id==='speed'){action('מעבר למדידות כיסוי בחדרים',()=>select(screens.findIndex(x=>x.id==='wifi')),true)}
+ else if(x.id==='learning'){action('מסלולי לימוד סיבים',()=>select(screens.findIndex(x=>x.id==='fiber')),true)}
+ else if(x.id==='fiber'){action('מדריכים לנחושת',()=>select(screens.findIndex(x=>x.id==='copper')))}
+ else if(x.id==='equipment'){action('קטלוג מק״טים',()=>select(screens.findIndex(x=>x.id==='catalog')))}
+ action('▶ למסך הבא',()=>select(current+1));
+ history.replaceState(null,'','#'+x.id);
+}
+document.getElementById('prev').addEventListener('click',()=>select(current-1));document.getElementById('next').addEventListener('click',()=>select(current+1));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&open)closeModal();else if(!open&&e.key==='ArrowLeft')select(current+1);else if(!open&&e.key==='ArrowRight')select(current-1)});
+const initial=screens.findIndex(x=>x.id===location.hash.slice(1));select(initial>=0?initial:0);
+</script>
+</body></html>
